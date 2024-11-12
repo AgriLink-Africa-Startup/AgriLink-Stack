@@ -1,3 +1,0 @@
-<template>
-    <h2>landing page</h2>
-</template>
