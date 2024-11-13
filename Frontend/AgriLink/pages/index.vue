@@ -4,10 +4,10 @@
         <img src="../assets/img/logo.png" alt="Agriculture Market Connect Logo"
             class="w-28 sm:w-32 md:w-40 lg:w-40 xl:w-40 h-28 sm:h-32 md:h-40 lg:h-40 xl:h-40 mx-auto mb-6 rounded-full border-4 border-green-600 shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out" />
         <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-green-700 mb-4 text-center">
-            Welcome to Agriculture Market Connect!
+            Welcome to AgriLink Africa Connect!
         </h1>
         <p class="text-gray-800 mb-8 text-center text-md sm:text-lg md:text-xl max-w-3xl px-4">
-            At Agriculture Market Connect, we bridge the gap between farmers and buyers, creating a seamless marketplace
+            At AgriLink Africa Connect, we bridge the gap between farmers and buyers, creating a seamless marketplace
             for local produce. Join us in strengthening Kenya’s agricultural economy by empowering farmers and providing
             buyers with fresh, locally-sourced products.
         </p>
@@ -43,7 +43,7 @@
                 <div class="sm:w-1/2 space-y-4">
                     <h2 class="text-md sm:text-xl md:text-2xl font-semibold text-green-600">Empowering Kenya</h2>
                     <p class="text-gray-700 text-sm sm:text-base md:text-lg">
-                        Agriculture Market Connect aims to boost Kenya’s agricultural economy by connecting local
+                        AgriLink Africa Connect aims to boost Kenya’s agricultural economy by connecting local
                         farmers with buyers across the region.
                     </p>
                 </div>
