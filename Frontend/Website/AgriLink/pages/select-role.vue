@@ -8,7 +8,7 @@
       <div class=" min-h-screen flex flex-col justify-center items-center space-y-8 py-10 px-6">
         <div 
         class="bg-white rounded-xl shadow-lg p-10 w-full max-w-sm sm:max-w-md flex items-center justify-between text-center hover:shadow-2xl transition-shadow duration-300 ease-in-out cursor-pointer"
-        @click="$router.push('/register/farmer')"
+        @click="$router.push('/farmer/reg')"
       >
         <div class="flex items-center space-x-8">
           <Icon icon="mdi:account-outline" class="text-gray-400 text-2xl" /> <!-- Farmer Icon -->
@@ -20,7 +20,7 @@
       <!-- Buyer Section -->
       <div 
         class="bg-white rounded-xl shadow-lg p-10 w-full max-w-sm sm:max-w-md flex items-center justify-between text-center hover:shadow-2xl transition-shadow duration-300 ease-in-out cursor-pointer"
-        @click="$router.push('/register/buyer')"
+        @click="$router.push('/buyer/reg')"
       >
         <div class="flex items-center space-x-8">
           <Icon icon="mdi:cart-outline" class="text-gray-400 text-2xl" /> <!-- Buyer Icon -->
