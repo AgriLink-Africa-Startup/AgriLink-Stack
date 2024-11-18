@@ -2,9 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/users');
-const expenseRoutes = require('./routes/expenses');
-const targetsRoutes = require('./routes/targets');
-const savingsRoutes = require('./routes/savings')
+c
 
 
 const app = express();
@@ -15,9 +13,7 @@ app.use(cors());
 
 // Use routes
 app.use('/api', userRoutes);
-app.use('/api', expenseRoutes);
-app.use('/api', targetsRoutes);
-app.use('/api', savingsRoutes);
+
 
 
 app.listen(PORT, () => {
