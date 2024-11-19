@@ -55,17 +55,20 @@
         />
 
         <!-- Password -->
-        <UInput 
-          v-model="formData.password" 
-          label="Password" 
-          placeholder="Enter your password" 
-          type="password" 
-          class="mb-4"
-          :aria-label="'Password input'"
-           :style="{ backgroundColor: 'white',  }"
-          required
-        />
-
+        <div class="mb-4 relative">
+           <UInput 
+            v-model="formData.password" 
+            label="Password" 
+            placeholder="Enter your password" 
+            :type="isPassVisible ? 'text' : 'password'"  
+            :aria-label="'Password input'"
+            :style="{ backgroundColor: 'white' }"
+            required
+          />
+          <span class="absolute right-3 top-0 cursor-pointer text-gray-500 border-l-2 p-1" @click="togglePassword">
+                {{ isPassVisible ? "🙈" : "👁️" }}
+              </span>
+           </div>
         <!-- Submit Button -->
         <div class="text-center">
           <UButton 
@@ -89,6 +92,8 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useTogglePassword } from '../composables/toggle';
+const { isPassVisible, togglePassword } = useTogglePassword();
 
 // Data properties
 const roles = ref([

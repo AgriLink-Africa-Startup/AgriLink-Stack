@@ -8,7 +8,7 @@
           <UInput 
             v-model="formData.phone" 
             label="Phone Number" 
-            placeholder="Enter your phone number" 
+            placeholder="0716******" 
             type="tel" 
             icon="i-heroicons-phone"
             class="mb-4"
@@ -18,16 +18,21 @@
           />
   
           <!-- Password -->
-          <UInput 
+           <div class="mb-4 relative">
+           <UInput 
             v-model="formData.password" 
             label="Password" 
             placeholder="Enter your password" 
-            type="password" 
-            class="mb-4"
+            :type="isPassVisible ? 'text' : 'password'"  
             :aria-label="'Password input'"
             :style="{ backgroundColor: 'white' }"
             required
           />
+          <span class="absolute right-3 top-0 cursor-pointer text-gray-500 border-l-2 p-1" @click="togglePassword">
+                {{ isPassVisible ? "🙈" : "👁️" }}
+              </span>
+           </div>
+        
   
           <!-- Submit Button -->
           <div class="text-center">
@@ -52,12 +57,14 @@
   
   <script setup>
   import { ref } from 'vue';
-  
+  import { useTogglePassword } from '../composables/toggle';
+  const { isPassVisible, togglePassword } = useTogglePassword();
   // Data properties
-  const formData = ref({
+   const formData=ref({
     phone: '',
-    password: '',
-  });
+  password: '',
+   })
+const loading = ref(false);
   
   // Method for handling form submission
   const loginUser = () => {
