@@ -1,0 +1,14 @@
+{
+  "farmers": [
+    { "name":"Reuben",
+      "phone": "0716899396",
+      "password": "agrilink@2"
+   
+    },
+    {
+      "name":"Levi",
+      "phone":"0717271815",
+      "password": "agrilink@2"
+    }
+  ]
+}
