@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const explore = () => {
+const communities = () => {
   return (
     <View>
-      <Text>explore</Text>
+      <Text>communities</Text>
     </View>
   )
 }
 
-export default explore
+export default communities
