@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Website/AgriLink/Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    environment:
+      - NUXT_ENV_API_URL=http://backend:3000
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
