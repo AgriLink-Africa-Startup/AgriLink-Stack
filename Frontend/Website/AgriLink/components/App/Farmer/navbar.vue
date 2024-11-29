@@ -15,11 +15,11 @@
           <span class="text-sm">Community</span>
         </UButton>
 
-        <UButton variant="ghost" size="sm" to="/Farmer/products" aria-label="Products"
-          class="hover:text-green-600 flex flex-col items-center">
-          <UIcon name="i-heroicons-shopping-cart-solid" size="24" class="mb-1" />
-          <span class="text-sm">Products</span>
-        </UButton>
+        <UButton variant="ghost" size="sm" to="/Farmer/consult" aria-label="Consult"
+  class="hover:text-green-600 flex flex-col items-center">
+  <UIcon name="i-heroicons-chat-bubble-left-right-solid" size="24" class="mb-1" />
+  <span class="text-sm">Consult</span>
+</UButton>
 
         <UButton variant="ghost" size="sm" to="/Farmer/profile" aria-label="Profile"
           class="hover:text-green-600 flex flex-col items-center">

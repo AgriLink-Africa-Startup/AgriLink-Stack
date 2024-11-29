@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <AppFarmerNavbar />
+    <div class="mt-20 mx-auto">
       <AppFarmerProfile/>
     </div>
     
