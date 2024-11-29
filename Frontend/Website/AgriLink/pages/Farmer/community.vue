@@ -2,7 +2,7 @@
     <div class="community-page px-4 py-6">
       <!-- Back Icon -->
       <div class="mb-4 flex items-center">
-        <NuxtLink to="/" class="flex items-center text-blue-500 hover:text-blue-600">
+        <NuxtLink to="/Farmer/dashboard" class="flex items-center text-blue-500 hover:text-blue-600">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
@@ -45,11 +45,14 @@
           <!-- Comments Section -->
           <div class="comments mt-4">
             <h5 class="font-medium text-sm mb-2">Comments:</h5>
-            <div v-for="comment in post.comments" :key="comment.id">
-              <CommentItem
+            <div>
+              <!-- Reusable CommentItem Component -->
+              <commentItem
+                v-for="comment in post.comments"
+                :key="comment.id"
                 :comment="comment"
                 :postId="post.id"
-                @add-reply="addReply"
+                @add-reply="handleAddReply"
               />
             </div>
   
@@ -77,10 +80,11 @@
       </div>
     </div>
   </template>
+  
   <script setup>
   import { ref } from "vue";
-import CommentItem from "~/components/Home/commentItem.vue";
- 
+  import CommentItem from "~/components/Home/commentItem.vue";
+  
   // Posts data
   const posts = ref([
     {
@@ -115,13 +119,15 @@ import CommentItem from "~/components/Home/commentItem.vue";
   // Add a new post
   function submitPost() {
     if (!newPost.value.trim()) return;
+  
     posts.value.unshift({
       id: Date.now(),
-      author: "You", // Replace with logged-in farmer's name
+      author: "You", // Replace with logged-in user's name
       content: newPost.value.trim(),
       timestamp: "Just now",
       comments: [],
     });
+  
     newPost.value = "";
   }
   
@@ -134,16 +140,17 @@ import CommentItem from "~/components/Home/commentItem.vue";
     if (post) {
       post.comments.push({
         id: Date.now(),
-        author: "You", // Replace with logged-in farmer's name
+        author: "You", // Replace with logged-in user's name
         content: commentContent,
         replies: [],
       });
     }
+  
     newComments.value[postId] = "";
   }
   
   // Add a reply to a specific comment
-  function addReply({ postId, commentId, reply }) {
+  function handleAddReply({ postId, commentId, reply }) {
     const post = posts.value.find((p) => p.id === postId);
     if (!post) return;
   
@@ -158,10 +165,10 @@ import CommentItem from "~/components/Home/commentItem.vue";
   }
   </script>
   
-
-<style scoped>
-.community-page {
+  <style scoped>
+  .community-page {
     max-width: 800px;
     margin: 0 auto;
-}
-</style>
+  }
+  </style>
+  

@@ -8,6 +8,7 @@
       <!-- Add Reply -->
       <div v-if="showReplyInput" class="mt-2">
         <UInput
+          ref="replyInput"
           type="textarea"
           v-model="replyContent"
           placeholder="Write a reply..."
@@ -36,17 +37,22 @@
         <div v-for="reply in comment.replies" :key="reply.id">
           <commentItem :comment="reply" :postId="postId" @add-reply="forwardReply" />
         </div>
+        <div class="text-sm text-gray-500 mt-2">
+          {{ comment.replies.length }} {{ comment.replies.length > 1 ? 'Replies' : 'Reply' }}
+        </div>
       </div>
     </div>
   </template>
-  
   <script setup>
-  import { ref } from "vue";
+  import { ref, nextTick } from "vue";
   
   // Props
   defineProps({
     comment: Object,
-    postId: Number,
+    postId: {
+      type: Number,
+      required: true,
+    },
   });
   
   // Emits
@@ -55,19 +61,29 @@
   // Local state
   const showReplyInput = ref(false);
   const replyContent = ref("");
+  const replyInput = ref(null);
   
   // Methods
   function toggleReplyInput() {
     showReplyInput.value = !showReplyInput.value;
+    if (showReplyInput.value) {
+      nextTick(() => {
+        replyInput.value?.focus(); // Auto-focus the input
+      });
+    }
   }
   
   function submitReply() {
+    if (!replyContent.value.trim()) return;
+  
     const reply = {
       id: Date.now(), // Temporary unique ID
-      author: "You", // Replace with the logged-in farmer's name
+      author: "You", // Replace with the logged-in user's name
       content: replyContent.value.trim(),
       replies: [],
     };
+  
+    // Emit the event with the necessary details
     emit("add-reply", { postId, commentId: comment.id, reply });
     replyContent.value = "";
     showReplyInput.value = false;
@@ -77,4 +93,19 @@
     emit("add-reply", data);
   }
   </script>
+  
+  
+  <style scoped>
+  .comment-item {
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .replies {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+    border-left: 2px solid #e0e0e0;
+  }
+  </style>
   
