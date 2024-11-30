@@ -1,15 +1,18 @@
 <template>
-    <AppFarmerNavbar />
-    <div class="bg-white  px-4 py-6 mt-20">
-        <HomeHeader />
-        <HomeConsultation />
-        <ProductFeaturedProducts />
+    <div class="h-screen">
+        <AppFarmerNavbar />
+
+        <div class=" mt-20">
+            <AppFarmerChatbot />
+        </div>
     </div>
+
 </template>
 <script setup>
 
+
 useHead({
-    title: 'AgriLink-Farmer',
+    title: 'Crop Management - Consult.iO',
     meta: [
         { name: 'description', content: 'Detailed crop management advice for maximizing your yield.' },
         { property: 'og:title', content: 'Crop Management - Consult.iO' },
@@ -17,8 +20,3 @@ useHead({
     ],
 });
 </script>
-<style scoped>
-body {
-    font-family: "Poppins", sans-serif;
-}
-</style>
