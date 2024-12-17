@@ -1,21 +1,25 @@
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const userRoutes = require('./routes/users');
-c
+const express=require('express');
+const mysql=require('mysql');
+const cors=require('cors');
 
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+ const app=express();
+ app.use(cors());
+ const PORT =process.env.PORT || 5000;
 
-app.use(bodyParser.json());
-app.use(cors());
+ const  db=mysql.createConnection({
+  host: 'localhost',
+  user: 'robin',
+  password: 'Richie@innit#',
+  database: ''
+ });
 
-// Use routes
-app.use('/api', userRoutes);
+ db.connect((error)=>{
+  if(error){
+    throw error;
+  }else{
+    console.log("connection successful");
+  }
+ });
 
-
-
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+ app.use(express.json());

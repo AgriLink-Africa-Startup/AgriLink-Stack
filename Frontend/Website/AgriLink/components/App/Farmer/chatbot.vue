@@ -2,7 +2,7 @@
     <div class="chatbot-layout bg-gray-100 flex w-full">
 
 
-        <div class="chatbot-sidebar bg-white shadow-md p-4 flex flex-col w-1/4">
+        <div class="chatbot-sidebar bg-white shadow-md p-4 flex flex-col w-1/4" >
             <button @click="startNewChat"
                 class="flex items-center gap-2 mb-4 p-2 bg-green-500 text-white rounded hover:bg-green-700">
                 <UIcon name="i-heroicons-plus-circle-solid" size="20" />
@@ -73,7 +73,10 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useTogglePassword } from '../composables/toggle';
 
+
+const { isPassVisible, togglePassword } = useTogglePassword();
 
 const messages = ref([
     { sender: 'bot', text: 'Hello! I’m your farm consultation assistant. How can I assist you today?' }
@@ -113,6 +116,9 @@ const getBotResponse = (input) => {
 
     if (lowerInput.includes('hi') || lowerInput.includes('hello')) {
         return 'Hi there! What can I help you with today?'
+    }
+    else  if(lowerInput.includes('millet care') || lowerInput.includes('millet')){
+        return 'to ensure that your millet grows to maximum expectation you need to ensure weather clarity pest contol fertilizer optimization and keep dates'
     }
 
     return "I’m not sure about that. Could you try asking something else or provide more details?"
