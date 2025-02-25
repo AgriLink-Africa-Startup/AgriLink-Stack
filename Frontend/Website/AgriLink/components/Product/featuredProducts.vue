@@ -6,7 +6,7 @@
         </div>
         <div class="grid grid-cols-2 gap-4">
 
-            <UCard v-for="(product, index) in featuredProducts" :key="index" class="text-center">
+            <UCard v-for="(product, index) in featuredProducts" :key="index" class="text-center" :style="{backgroundColor:'white', color:'black'}">
 
                 <img :src="product.image" alt="Product Image" class="w-full h-40 object-cover rounded-t-lg" />
                 <!-- Content Section -->

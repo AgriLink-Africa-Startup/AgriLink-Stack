@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-between items-center mb-6">
         <div>
-            <h1 class="text-lg font-semibold">Hi {{ farmerData.name }}! 👋</h1>
+            <h1 class="text-lg font-semibold text-black">Hi {{ farmerData.name }}! 👋</h1>
             <p class="text-sm text-gray-500">Enjoy our services!</p>
         </div>
         <UChip :text="count" size="lg">
@@ -11,9 +11,10 @@
     </div>
 
 
-    <UInput v-model="search" placeholder="Search here..." size="md" icon="i-heroicons-magnifying-glass" class="mb-6" />
+    <UInput v-model="search" placeholder="Search here..." size="md" icon="i-heroicons-magnifying-glass" class="mb-6" :style="{backgroundColor:'white', color:'black'}"/>
 </template>
 <script setup>
+import { _backgroundColor } from "#tailwind-config/theme";
 import { ref } from "vue";
 const count = ref(3)
 const search = ref("");
