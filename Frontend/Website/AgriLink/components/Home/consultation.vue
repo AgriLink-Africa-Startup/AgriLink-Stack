@@ -1,10 +1,15 @@
+<script setup lang="ts">
+import type { _backgroundColor } from '#tailwind-config/theme';
+
+</script>
+
 <template>
-    <UCard class="mb-6 bg-green-50">
+    <UCard class="mb-6 bg-green-50" :style="{backgroundColor:'#d4edda'}">
         <template #header>
             <div class="flex items-center">
                 <img src="/myproducts/consult.png" alt="Free Consultation" class="w-10 h-10 rounded-full mr-4" />
                 <div>
-                    <h2 class="text-sm font-semibold">Free Consultation</h2>
+                    <h2 class="text-sm font-semibold text-black">Free Consultation</h2>
                     <p class="text-xs text-gray-500">
                         Get free support from our customer service
                     </p>

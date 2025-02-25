@@ -5,15 +5,24 @@
       <form @submit.prevent="login">
 
 
-        <UInput v-model="formData.phone" label="Phone Number" placeholder="0716******" type="tel"
-          icon="i-heroicons-phone" class="mb-4" :style="{ backgroundColor: 'white' }" :aria-label="'Phone number input'"
-          required />
+        <UInput 
+  v-model="formData.phone" 
+  label="Phone Number" 
+  placeholder="0716******" 
+  type="tel"
+  icon="i-heroicons-phone" 
+  class="mb-4" 
+  :style="{ backgroundColor: 'white', color: 'black' }" 
+  :aria-label="'Phone number input'"
+  required 
+/>
+
 
 
         <div class="mb-4 relative">
           <UInput v-model="formData.password" label="Password" placeholder="Enter your password"
             :type="isPassVisible ? 'text' : 'password'" :aria-label="'Password input'"
-            :style="{ backgroundColor: 'white' }" required />
+            :style="{ backgroundColor: 'white', color:'black' }" required />
           <span class="absolute right-3 top-0 cursor-pointer text-gray-500 border-l-2 p-1" @click="togglePassword">
             {{ isPassVisible ? "🙈" : "👁️" }}
           </span>
