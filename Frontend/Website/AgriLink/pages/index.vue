@@ -52,7 +52,7 @@
             </div>
 
         </div>
-        <nuxt-link to="/select-role"
+        <nuxt-link to="/register"
             class="bg-green-400 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300 mt-10">
             Get Started
         </nuxt-link>

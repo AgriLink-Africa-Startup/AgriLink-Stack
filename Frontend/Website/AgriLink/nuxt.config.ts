@@ -6,7 +6,10 @@ export default defineNuxtConfig({
     '@/assets/css/tailwind.css',
   ],
 
-  modules: ['@nuxt/ui'],
+  modules: [
+    '@nuxt/ui',
+    '@pinia/nuxt'
+  ],
 
   build: {
     transpile: ['@nuxt/ui'],  // Ensure UI components are transpiled if necessary

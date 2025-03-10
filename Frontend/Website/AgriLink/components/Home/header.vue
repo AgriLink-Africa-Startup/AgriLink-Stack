@@ -1,24 +1,34 @@
 <template>
-    <div class="flex justify-between items-center mb-6">
+    <div class="mb-6">
         <div>
-            <h1 class="text-lg font-semibold text-black">Hi {{ farmerData.name }}! 👋</h1>
+            <h1 class="text-lg font-semibold text-black">
+                Hi {{ farmerName }}! 👋
+            </h1>
             <p class="text-sm text-gray-500">Enjoy our services!</p>
         </div>
-        <UChip :text="count" size="lg">
-            <UButton icon="i-heroicons-bell" size="xl" variant="ghost" class="text-green-600" />
-        </UChip>
 
+        <UInput v-model="search" placeholder="Search here..." size="md" icon="i-heroicons-magnifying-glass"
+            class="mb-6" :style="{backgroundColor:'white', color:'black'}" />
     </div>
-
-
-    <UInput v-model="search" placeholder="Search here..." size="md" icon="i-heroicons-magnifying-glass" class="mb-6" :style="{backgroundColor:'white', color:'black'}"/>
 </template>
+
 <script setup>
-import { _backgroundColor } from "#tailwind-config/theme";
-import { ref } from "vue";
-const count = ref(3)
+import { ref, computed, onMounted } from "vue";
+import { useUserStore } from "~/store/userStore";
+
+const userStore = useUserStore();
 const search = ref("");
-const farmerData = localStorage.getItem("farmerData")
-    ? JSON.parse(localStorage.getItem("farmerData"))
-    : null;
+
+// ✅ Compute user name dynamically
+const farmerName = computed(() => userStore.user?.first_name.charAt(0).toUpperCase() + userStore.user?.first_name.slice(1) || "Guest");
+
+// ✅ Fetch user data when component loads
+onMounted(() => {
+  if (!userStore.user) {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      userStore.fetchUserData(storedUser.phone);
+    }
+  }
+});
 </script>
